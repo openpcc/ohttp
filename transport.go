@@ -140,6 +140,7 @@ func (c *Transport) RoundTrip(req *http.Request) (resp *http.Response, err error
 	if err != nil {
 		return nil, fmt.Errorf("ohttp: failed to decapsulate response: %w", err)
 	}
+
 	return resp, nil
 }
 

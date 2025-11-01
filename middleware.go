@@ -269,7 +269,7 @@ func writeChunkedBody(rw http.ResponseWriter, r io.Reader, msgInfo MessageInfo) 
 
 	// write the chunks.
 	flusher, isFlusher := rw.(http.Flusher)
-	buf := make([]byte, max(1, msgInfo.MaxCiphertextChunkLen))
+	buf := make([]byte, msgInfo.MaxCiphertextChunkLen)
 	// adapted from io.CopyBuffer and inserted a flush after the write.
 	for {
 		nr, err := r.Read(buf)

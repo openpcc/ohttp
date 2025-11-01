@@ -5,8 +5,8 @@ go 1.25.1
 
 require (
 	github.com/cloudflare/circl v1.6.1
-	github.com/confidentsecurity/bhttp v0.0.1
-	github.com/confidentsecurity/twoway v0.0.1
+	github.com/confidentsecurity/bhttp v0.0.5
+	github.com/confidentsecurity/twoway v0.0.5
 	github.com/quic-go/quic-go v0.55.0
 	github.com/stretchr/testify v1.11.1
 	go.opentelemetry.io/otel v1.38.0
