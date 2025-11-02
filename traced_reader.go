@@ -10,8 +10,8 @@ import (
 	"go.opentelemetry.io/otel/trace"
 )
 
-// TracedReader starts a span from the first read to a read encountering a non-nil error.
-type TracedReader struct {
+// tracedReader starts a span from the first read to a read encountering a non-nil error.
+type tracedReader struct {
 	traceCtx context.Context
 	name     string
 	span     trace.Span
@@ -23,8 +23,8 @@ type TracedReader struct {
 	r         io.Reader
 }
 
-func NewTracedReader(ctx context.Context, tracer trace.Tracer, r io.Reader, name string) *TracedReader {
-	return &TracedReader{
+func newTracedReader(ctx context.Context, tracer trace.Tracer, r io.Reader, name string) *tracedReader {
+	return &tracedReader{
 		traceCtx: ctx,
 		name:     name,
 		span:     nil,
@@ -36,7 +36,7 @@ func NewTracedReader(ctx context.Context, tracer trace.Tracer, r io.Reader, name
 	}
 }
 
-func (r *TracedReader) Read(p []byte) (int, error) {
+func (r *tracedReader) Read(p []byte) (int, error) {
 	if r.reads == 0 && !r.ended {
 		_, span := r.tracer.Start(r.traceCtx, r.name)
 		r.span = span
@@ -66,7 +66,7 @@ func (r *TracedReader) Read(p []byte) (int, error) {
 	return n, err
 }
 
-func (r *TracedReader) Close() error {
+func (r *tracedReader) Close() error {
 	closer, ok := r.r.(io.Closer)
 	if ok {
 		return closer.Close()

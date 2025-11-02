@@ -164,7 +164,7 @@ func (c *Transport) EncapsulateWithMessageInfo(req *http.Request) (*http.Request
 	req = req.WithContext(ctx)
 	req = c.adaptDefaultHTTPTransport(req)
 	if req.Body != nil {
-		req.Body = NewTracedReader(req.Context(), c.tracer, req.Body, "ohttp.RequestBodyReader")
+		req.Body = newTracedReader(req.Context(), c.tracer, req.Body, "ohttp.RequestBodyReader")
 	}
 	reqMsg, respDecoder, err := c.encoder.EncodeRequest(req)
 	if err != nil {
@@ -181,7 +181,7 @@ func (c *Transport) EncapsulateWithMessageInfo(req *http.Request) (*http.Request
 	}
 
 	sealer, err := c.sender.NewRequestSealer(
-		NewTracedReader(req.Context(), c.tracer, reqMsg, "ohttp.EncodedRequestReader"),
+		newTracedReader(req.Context(), c.tracer, reqMsg, "ohttp.EncodedRequestReader"),
 		reqMsg.MediaType,
 		sealOpts...,
 	)
@@ -194,7 +194,7 @@ func (c *Transport) EncapsulateWithMessageInfo(req *http.Request) (*http.Request
 		req.Context(),
 		http.MethodPost,
 		c.relayURL.String(),
-		NewTracedReader(req.Context(), c.tracer, sealer, "ohttp.SealedRequestReader"),
+		newTracedReader(req.Context(), c.tracer, sealer, "ohttp.SealedRequestReader"),
 	)
 	if err != nil {
 		return nil, nil, info, fmt.Errorf("failed to create new relay request: %w", err)
@@ -307,7 +307,7 @@ func (d *ResponseDecapsulator) Decapsulate(ctx context.Context, encapResp *http.
 		}
 	}
 
-	encapResp.Body = NewTracedReader(ctx, d.tracer, encapResp.Body, "ohttp.SealedResponseReader")
+	encapResp.Body = newTracedReader(ctx, d.tracer, encapResp.Body, "ohttp.SealedResponseReader")
 
 	var openOpts []twoway.Option
 	chunkedResp := false
@@ -336,7 +336,7 @@ func (d *ResponseDecapsulator) Decapsulate(ctx context.Context, encapResp *http.
 	}
 
 	if resp.Body != nil {
-		resp.Body = NewTracedReader(ctx, d.tracer, resp.Body, "ohttp.ResponseBodyReader")
+		resp.Body = newTracedReader(ctx, d.tracer, resp.Body, "ohttp.ResponseBodyReader")
 	}
 
 	// make sure that closing the body on the new resp also closes the body on the relay response.
