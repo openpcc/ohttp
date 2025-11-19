@@ -1,9 +1,9 @@
 github.com/cloudflare/circl v1.6.1 h1:zqIqSPIndyBh1bjLVVDHMPpVKqp8Su/V+6MeDzzQBQ0=
 github.com/cloudflare/circl v1.6.1/go.mod h1:uddAzsPgqdMAYatqJ0lsjX1oECcQLIlRpzZh3pJrofs=
-github.com/confidentsecurity/bhttp v0.0.10 h1:aGThqatsHJaIMttuv/K7SG/rmTf02tuO9VBET15UOyw=
-github.com/confidentsecurity/bhttp v0.0.10/go.mod h1:NrzuPh7/VKrWQjIaQ/8eMeeFshQBKzp4yX12d20eFpk=
-github.com/confidentsecurity/twoway v0.0.8 h1:4BZ3Bk/cSXEagczIl0vZNW4EmeejfcYBOxbI/om14rI=
-github.com/confidentsecurity/twoway v0.0.8/go.mod h1:ggViao8GlQ/IMq2hgOqdZAqrfwanGZOjuwyh0xyuW/E=
+github.com/confidentsecurity/bhttp v0.0.13 h1:A1/iQ8aKXdc3clSpsd2LXGfWL9OHNhSj8ZPmaMSzltY=
+github.com/confidentsecurity/bhttp v0.0.13/go.mod h1:Yj5McpniBwz10RsCXDhZfkMcadWBmVa6o7SJIAY31Zg=
+github.com/confidentsecurity/twoway v0.0.13 h1:GCXLhfkcqc0N0Hk5r/O26l2U5vP0Uram5Rq6DbwrWLI=
+github.com/confidentsecurity/twoway v0.0.13/go.mod h1:A99Oh99WgPMnHDh29YGo991L6a1u2ieSSrj4JnNMEFI=
 github.com/davecgh/go-spew v1.1.2-0.20180830191138-d8f796af33cc h1:U9qPSI2PIWSS1VwoXQT9A3Wy9MM3WgvqSxFWenqJduM=
 github.com/davecgh/go-spew v1.1.2-0.20180830191138-d8f796af33cc/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/google/go-cmp v0.7.0 h1:wk8382ETsv4JYUZwIsn6YpYiWiBsYLSJiTsyBybVuN8=
